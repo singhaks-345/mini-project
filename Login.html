@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .login{
+                position:relative;
+                top:200px;
+                left:550px;
+                background-color:white;
+                width: 30%;
+                height: 50vh;
+                padding: 0px;
+                margin: 0px;
+            }
+            .login h1{
+                position:relative;
+                
+            }
+            body{
+                background-color: rgba(172, 245, 243, 0.792);
+            }
+        </style>
+
+    </head>
+    <body>
+        <form action="/myaction.php" name="myform" onsubmit="return validateform()" method="post">
+        <div class="login" id="name">
+          <center> <h1>LOGIN</h1></center>
+       <center> <table>
+            <tr>
+                <td><h3>Username</h3></td>&nbsp;&nbsp;
+                
+                <td><input type="text" placeholder="Username" style="position:relative;width:120%"></td>
+            </tr>
+            
+            <tr><td></td><span class="formerror"><td><b></b></td></span></tr>
+            <tr>
+                <td style="position:relative;top:30px"><h3>Password</h3></td></td>
+                
+                <td><input type="text"placeholder="Password" style="position:relative;top:30px;width:120%"></td>
+            
+            <tr><td><span class="formerror"></td><td><b></b></td></span></tr>
+            <tr>
+                <td><button type="submit"style="width:170px;position:relative;top:80px;background-color:rgb(152, 71, 173); color:rgb(249, 133, 16)">LOGIN</button></td>
+                
+                <td><button type="submit" style="width:170px;position:relative;top:80px;background-color:rgb(152, 71, 173);color:rgb(249, 133, 16)">REGISTER</button></td>
+            </tr>
+        </table></center>
+        </div>
+    </form>
+    </body>
+    <script>
+        function seterror(id,error){
+            element=document.getElementById(id);
+            element.getElementsByClassName('formerror')[0].innerHTML=error;
+
+
+
+        }
+        function validateform(){
+            var returnval=true;
+            var name=document.forms['myform']['fname'].value;
+            if(name.length<5){
+                seterror("name","length of name is too short.");
+                returnval=false;
+            }
+            return returnval;
+
+        }
+    </script>
+</html>
